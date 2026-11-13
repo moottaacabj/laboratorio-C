@@ -21,3 +21,19 @@ double calcularPuntoB(double v1, double y1, double a2, double h) {
     double v2 = sqrt(v1 * v1 + 2.0 * a2 * delta_y);
     return v2;
 }
+
+// Función que resuelve el Punto C (Altitud máxima alcanzada si fallan los motores en h)
+double calcularPuntoC(double v2, double h, double g) {
+    // En el punto más alto (h_max), la velocidad vertical final se anula (0 m/s).
+    // Ecuación de Torricelli en tiro vertical: 0 = v2^2 - 2 * g * delta_h
+    double delta_h = (v2 * v2) / (2.0 * g);
+    double h_max = h + delta_h;
+    return h_max;
+}
+
+// Función que resuelve el Punto D (Aceleración experimentada en Fase 1 como múltiplo de g)
+double calcularPuntoD(double a1, double g) {
+    // Fuerza G aparente soportada por la tripulación en ascenso vertical: (a1 + g) / g
+    double multiplo_g = (a1 + g) / g;
+    return multiplo_g;
+}
