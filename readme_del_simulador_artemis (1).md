@@ -1,17 +1,19 @@
 SIMULADOR DE MISIONES ARTEMIS - ESCENARIO 1: ASCENSO Y PROPULSION CON EL SLS
 
-Trabajo Practico Integrador Final de la asignatura Algoritmos y Estructuras de Datos - Ingenieria en Sistemas de Informacion, Universidad Tecnologica Nacional (UTN) - Facultad Regional Resistencia.
+Laboratorio de C - Algoritmos y Estructuras de Datos - Ingenieria en Sistemas de Informacion UTN FRRe
 
 --------------------------------------------------------------------------------
 
 INTEGRANTES Y COMISION
 
-- Comision: [Completar con tu comision, ej: 2K1]
-- Integrante 1 (Edicion y produccion de video): [Apellido, Nombre]
-- Integrante 2 (Validaciones e interfaz de consola): [Apellido, Nombre]
-- Integrante 3 (Calculos fisicos Puntos A y B): [Apellido, Nombre]
-- Integrante 4 (Calculos fisicos Puntos C y D): [Apellido, Nombre]
-- Integrante 5 (Documentacion y organizacion de repositorio): [Apellido, Nombre]
+- Comision: K1.4
+  
+- ALARCON, Martín Santiago (Calculos fisicos Puntos A y B)
+- CIMBARO CANELLA ALCARAZ, Lucas Leonel (Calculos fisicos Puntos C y D)
+- MOTTA BITTENCURT, Constanza (main.c, README.md y organizacion de repositorio)
+- MUCHIUT, Ian Mateo (Validaciones e interfaz de consola)
+- MUÑOZ CIPETTINI, Sebastian (Edicion y produccion de video)
+
 
 --------------------------------------------------------------------------------
 
@@ -46,7 +48,7 @@ El programa permite calcular los siguientes cuatro puntos analiticos, tanto con 
 
 FUNCIONAMIENTO DEL PROGRAMA Y ARQUITECTURA MODULAR
 
-El sistema esta desarrollado en lenguaje C estandar bajo un diseno modular que separa la interfaz de usuario, las validaciones de entrada y la logica fisica mediante el uso de estructuras (struct) y paso por referencia con punteros:
+El sistema esta desarrollado en lenguaje C estandar bajo un diseño modular que separa la interfaz de usuario, las validaciones de entrada y la logica fisica mediante el uso de estructuras (struct) y paso por referencia con punteros:
 
     main.c            Punto de entrada, menu principal interactivo y control de flujo
     simulador.h       Definicion de DatosMisionSLS, constantes y prototipos de simulacion
@@ -98,7 +100,7 @@ Antes de la entrega definitiva, el equipo debera ejecutar y verificar los siguie
 
 VIDEO DE PRESENTACION
 
-- Enlace al video (max. 5 minutos): [Pegar aqui el enlace de YouTube / Google Drive / Loom]
+- Enlace al video: 
 
 --------------------------------------------------------------------------------
 
@@ -107,9 +109,6 @@ REGISTRO DE USO DE INTELIGENCIA ARTIFICIAL
 En cumplimiento con las pautas de transparencia de la catedra, se detalla el uso de herramientas de Inteligencia Artificial Generativa durante el desarrollo:
 
 - Herramienta utilizada: Gemini (Google).
-- Tareas asistidas:
-  1. Diseno de la arquitectura modular del proyecto (main.c, simulador.h/.c, validaciones.h/.c).
-  2. Estructuracion del menu principal y paso de estructuras por puntero en main.c.
-  3. Redaccion de la plantilla base de documentacion en README.md.
-- Consultas realizadas: Se solicito asistencia para estructurar main.c respetando la separacion de responsabilidades exigida por la catedra y definir los contratos de funciones entre los modulos de validaciones y simulacion fisica.
-- Verificacion y adaptacion: El equipo reviso los prototipos de funciones para asegurar la compatibilidad con los modulos individuales de cada integrante, y ejecutara las pruebas de compilacion y validacion por consola una vez integradas todas las ramas en el repositorio.
+  
+Usos:
+- Controlar si el guión del video estaba completo y cumplia lo pedido.
