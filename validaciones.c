@@ -7,15 +7,9 @@
 #include <limits.h>
 #include "validaciones.h"
 
-/* ----------------------------------------------------------------------
- * Funciones internas (static): no forman parte de la interfaz publica
- * ---------------------------------------------------------------------- */
-
-/* Lee una linea completa de stdin en 'buffer' (tamano 'tam') y le quita el
- * '\n' final.
- * Retorna:  1 = linea leida correctamente
- *           0 = EOF sin datos
- *          -1 = la linea era demasiado larga (se descarto el excedente) */
+/*------Funciones internas (solo se usan en este archivo)------ */
+/*Lee una lines del teclado y le saca el salto de linea final.
+Devuelve: 1 = ok, 0 = fin de entrada, -1 = linea demasiado larga */
 static int leerLinea(char *buffer, size_t tam) {
     size_t len;
 
@@ -29,8 +23,7 @@ static int leerLinea(char *buffer, size_t tam) {
         return 1;
     }
 
-    /* No hay '\n': o la linea no entro en el buffer, o es la ultima linea
-     * del archivo sin salto final. */
+/* Si no hay salto de linea y el buffer esta lleno, la linea era muy larga */
     if (len == tam - 1) {
         limpiarBuffer(); /* descarta el resto de la linea */
         return -1;
@@ -38,7 +31,7 @@ static int leerLinea(char *buffer, size_t tam) {
     return 1;
 }
 
-/* Verifica que, a partir de 'p', solo queden espacios en blanco. */
+/* Devuelve 1 si el texto tiene solo espacios (o nada) */
 static int soloEspacios(const char *p) {
     while (*p != '\0') {
         if (!isspace((unsigned char)*p)) {
@@ -49,14 +42,11 @@ static int soloEspacios(const char *p) {
     return 1;
 }
 
-/* Devuelve 1 si la cadena esta vacia o contiene solo espacios. */
 static int esVacia(const char *s) {
     return soloEspacios(s);
 }
 
-/* ----------------------------------------------------------------------
- * Utilidades de entrada
- * ---------------------------------------------------------------------- */
+/* --------Limpieza de entrada-------- */
 
 void limpiarBuffer(void) {
     int c;
@@ -65,9 +55,7 @@ void limpiarBuffer(void) {
     }
 }
 
-/* ----------------------------------------------------------------------
- * Mensajes al usuario
- * ---------------------------------------------------------------------- */
+/* --------Mensajes al usuario--------- */
 
 void mostrarAdvertencia(const char *texto) {
     printf("[AVISO] %s\n", texto);
@@ -81,9 +69,7 @@ void mostrarExito(const char *texto) {
     printf("[OK] %s\n", texto);
 }
 
-/* ----------------------------------------------------------------------
- * Entrada segura
- * ---------------------------------------------------------------------- */
+/* --------Entrada segura-------- */
 
 int leerEnteroRango(const char *mensaje, int min, int max, int *valor) {
     char linea[MAX_LINEA];
@@ -97,7 +83,7 @@ int leerEnteroRango(const char *mensaje, int min, int max, int *valor) {
 
         estado = leerLinea(linea, sizeof(linea));
         if (estado == 0) {
-            return 0; /* EOF */
+            return 0; 
         }
         if (estado == -1) {
             mostrarError("La entrada es demasiado larga. Intente nuevamente.");
@@ -142,7 +128,7 @@ int leerRealRango(const char *mensaje, double min, double max, double *valor) {
 
         estado = leerLinea(linea, sizeof(linea));
         if (estado == 0) {
-            return 0; /* EOF */
+            return 0; 
         }
         if (estado == -1) {
             mostrarError("La entrada es demasiado larga. Intente nuevamente.");
@@ -153,7 +139,7 @@ int leerRealRango(const char *mensaje, double min, double max, double *valor) {
             continue;
         }
 
-        /* Se acepta la coma como separador decimal (ej. 12,5) */
+        /* Se acepta la coma como separador decimal */
         coma = strchr(linea, ',');
         if (coma != NULL) {
             *coma = '.';
@@ -166,7 +152,7 @@ int leerRealRango(const char *mensaje, double min, double max, double *valor) {
             mostrarError("Entrada invalida: debe ingresar un numero real.");
             continue;
         }
-        /* isfinite descarta "nan", "inf" y los desbordamientos a infinito */
+
         if (errno == ERANGE || !isfinite(numero)) {
             mostrarError("El numero ingresado esta fuera del rango representable.");
             continue;
@@ -193,7 +179,7 @@ int leerCaracter(const char *mensaje, const char *permitidos, char *valor) {
 
         estado = leerLinea(linea, sizeof(linea));
         if (estado == 0) {
-            return 0; /* EOF */
+            return 0; 
         }
         if (estado == -1) {
             mostrarError("La entrada es demasiado larga. Intente de nuevo.");
@@ -229,7 +215,7 @@ int leerConfirmacion(const char *mensaje) {
     char respuesta;
 
     if (!leerCaracter(mensaje, "sn", &respuesta)) {
-        return -1; /* EOF */
+        return -1;
     }
     return (respuesta == 's') ? 1 : 0;
 }
