@@ -1,104 +1,104 @@
-SIMULADOR DE MISIONES ARTEMIS - ESCENARIO 1: ASCENSO Y PROPULSION CON EL SLS
+SIMULADOR DE MISIONES ARTEMIS - ESCENARIO 1: ASCENSO Y PROPULSIÓN CON EL SLS
 
-Laboratorio de C - Algoritmos y Estructuras de Datos - Ingenieria en Sistemas de Informacion UTN FRRe
+Laboratorio de C - Algoritmos y Estructuras de Datos - Ingeniería en Sistemas de Información UTN FRRe
 
 --------------------------------------------------------------------------------
 
-INTEGRANTES Y COMISION
+INTEGRANTES Y COMISIÓN
 
-- Comision: K1.4
+- Comisión: K1.4
   
-- ALARCON, Martín Santiago (Calculos fisicos Puntos A y B)
-- CIMBARO CANELLA ALCARAZ, Lucas Leonel (Calculos fisicos Puntos C y D)
-- MOTTA BITTENCURT, Constanza (main.c, README.md y organizacion de repositorio)
+- ALARCÓN, Martín Santiago (Cálculos físicos Puntos A y B)
+- CIMBARO CANELLA ALCARAZ, Lucas Leonel (Cálculos físicos Puntos C y D)
+- MOTTA BITTENCURT, Constanza (main.c, README.md y organización de repositorio)
 - MUCHIUT, Ian Mateo (Validaciones e interfaz de consola)
-- MUÑOZ CIPETTINI, Sebastian (Edicion y produccion de video)
+- MUÑOZ CIPETTINI, Sebastián (Edición y producción de video)
 
 
 --------------------------------------------------------------------------------
 
-DESCRIPCION DEL ESCENARIO ASIGNADO
+DESCRIPCIÓN DEL ESCENARIO ASIGNADO
 
-El sistema simula por consola el lanzamiento vertical rectilineo del cohete Space Launch System (SLS) transportando a la nave Orion desde el Centro Espacial Kennedy (Escenario 1: MRUV y Desprendimiento), despreciando la resistencia del aire en la alta atmosfera:
+El sistema simula por consola el lanzamiento vertical rectilíneo del cohete Space Launch System (SLS) transportando a la nave Orion desde el Centro Espacial Kennedy (Escenario 1: MRUV y Desprendimiento), despreciando la resistencia del aire en la alta atmósfera:
 
-1. Primera Fase (Propulsion combinada): La nave parte del reposo ($v_0 = 0{,}0\text{ m/s}$, $y_0 = 0{,}0\text{ m}$) y asciende con aceleracion constante $a_1 = 20{,}0\text{ m/s}^2$ impulsada por los motores principales y los dos cohetes de combustible solido (SRB) durante $t_1 = 120{,}0\text{ s}$.
-2. Desacople y Segunda Fase: A los $120{,}0\text{ s}$ los SRB se desacoplan y el motor del nucleo principal continua acelerando la nave con $a_2 = 12{,}5\text{ m/s}^2$ hasta alcanzar una altitud de apagado de motores de $h = 160.000{,}0\text{ m}$ ($160{,}0\text{ km}$).
+1. Primera Fase (Propulsión combinada): La nave parte del reposo ($v_0 = 0{,}0\text{ m/s}$, $y_0 = 0{,}0\text{ m}$) y asciende con aceleración constante $a_1 = 20{,}0\text{ m/s}^2$ impulsada por los motores principales y los dos cohetes de combustible sólido (SRB) durante $t_1 = 120{,}0\text{ s}$.
+2. Desacople y Segunda Fase: A los $120{,}0\text{ s}$ los SRB se desacoplan y el motor del núcleo principal continúa acelerando la nave con $a_2 = 12{,}5\text{ m/s}^2$ hasta alcanzar una altitud de apagado de motores de $h = 160.000{,}0\text{ m}$ ($160{,}0\text{ km}$).
 
-Datos Fisicos Oficiales del Escenario:
+Datos Físicos Oficiales del Escenario:
 - Velocidad inicial ($v_0$): $0{,}0\text{ m/s}$
 - Altura inicial ($y_0$): $0{,}0\text{ m}$
-- Aceleracion Fase 1 ($a_1$): $20{,}0\text{ m/s}^2$
-- Duracion Fase 1 ($t_1$): $120{,}0\text{ s}$
-- Aceleracion Fase 2 ($a_2$): $12{,}5\text{ m/s}^2$
+- Aceleración Fase 1 ($a_1$): $20{,}0\text{ m/s}^2$
+- Duración Fase 1 ($t_1$): $120{,}0\text{ s}$
+- Aceleración Fase 2 ($a_2$): $12{,}5\text{ m/s}^2$
 - Altitud de apagado de motores ($h$): $160.000{,}0\text{ m}$
-- Aceleracion de la gravedad ($g$): $9{,}80\text{ m/s}^2$
+- Aceleración de la gravedad ($g$): $9{,}80\text{ m/s}^2$
 
 --------------------------------------------------------------------------------
 
-OBJETIVOS DE CALCULO DEL SIMULADOR
+OBJETIVOS DE CÁLCULO DEL SIMULADOR
 
-El programa permite calcular los siguientes cuatro puntos analiticos, tanto con los valores oficiales como con parametros personalizados ingresados por el usuario:
+El programa permite calcular los siguientes cuatro puntos analíticos, tanto con los valores oficiales como con parámetros personalizados ingresados por el usuario:
 
 - Punto A: Calcular la rapidez ($v_1$) y la altitud ($y_1$) alcanzadas al finalizar los primeros $120{,}0\text{ s}$ (desacople de los SRB).
-- Punto B: Calcular la rapidez maxima ($v_2$) alcanzada al llegar a los $160.000{,}0\text{ m}$ de altitud y apagar los motores.
-- Punto C: Calcular la altitud maxima ($h_{\text{max}}$) respecto de la plataforma de lanzamiento si los motores fallaran repentinamente a los $160.000{,}0\text{ m}$ y la nave continuara en caida libre bajo la accion de la gravedad ($g = 9{,}80\text{ m/s}^2$).
-- Punto D: Expresar la aceleracion maxima experimentada por la tripulacion en la primera fase como multiplo de la gravedad terrestre ($g$).
+- Punto B: Calcular la rapidez máxima ($v_2$) alcanzada al llegar a los $160.000{,}0\text{ m}$ de altitud y apagar los motores.
+- Punto C: Calcular la altitud máxima ($h_{\text{máx}}$) respecto de la plataforma de lanzamiento si los motores fallaran repentinamente a los $160.000{,}0\text{ m}$ y la nave continuara en caída libre bajo la acción de la gravedad ($g = 9{,}80\text{ m/s}^2$).
+- Punto D: Expresar la aceleración máxima experimentada por la tripulación en la primera fase como múltiplo de la gravedad terrestre ($g$).
 
 --------------------------------------------------------------------------------
 
 FUNCIONAMIENTO DEL PROGRAMA Y ARQUITECTURA MODULAR
 
-El sistema esta desarrollado en lenguaje C estandar bajo un diseño modular que separa la interfaz de usuario, las validaciones de entrada y la logica fisica mediante el uso de estructuras (struct) y paso por referencia con punteros:
+El sistema está desarrollado en lenguaje C estándar bajo un diseño modular que separa la interfaz de usuario, las validaciones de entrada y la lógica física mediante el uso de estructuras (struct) y paso por referencia con punteros:
 
-    main.c            Punto de entrada, menu principal interactivo y control de flujo
-    simulador.h       Definicion de DatosMisionSLS, constantes y prototipos de simulacion
-    simulador.c       Implementacion de las ecuaciones cinematicas (Puntos A, B, C y D)
+    main.c            Punto de entrada, menú principal interactivo y control de flujo
+    simulador.h       Definición de DatosMisionSLS, constantes y prototipos de simulación
+    simulador.c       Implementación de las ecuaciones cinemáticas (Puntos A, B, C y D)
     validaciones.h    Prototipos de las funciones de lectura segura por consola
-    validaciones.c    Validacion de tipos, rangos, buffers y deteccion de EOF
-    README.md         Documentacion general del proyecto y registro de uso de IA
+    validaciones.c    Validación de tipos, rangos, buffers y detección de EOF
+    README.md         Documentación general del proyecto y registro de uso de IA
 
 Validaciones Implementadas:
-El modulo validaciones garantiza que el programa no entre en bucles infinitos ni se cierre inesperadamente ante entradas invalidas:
-- Lectura segura mediante buffers de texto (fgets) y conversion controlada (strtol / strtod), evitando problemas con el buffer de entrada estandar (stdin).
-- Rechazo de cadenas vacias, caracteres alfabeticos o simbolos cuando se espera un numero.
-- Verificacion estricta de rangos minimos y maximos permitidos.
-- Deteccion y manejo controlado de fin de entrada (EOF).
+El módulo validaciones garantiza que el programa no entre en bucles infinitos ni se cierre inesperadamente ante entradas inválidas:
+- Lectura segura mediante buffers de texto (fgets) y conversión controlada (strtol / strtod), evitando problemas con el buffer de entrada estándar (stdin).
+- Rechazo de cadenas vacías, caracteres alfabéticos o símbolos cuando se espera un número.
+- Verificación estricta de rangos mínimos y máximos permitidos.
+- Detección y manejo controlado de fin de entrada (EOF).
 
 --------------------------------------------------------------------------------
 
-INSTRUCCIONES DE COMPILACION Y EJECUCION
+INSTRUCCIONES DE COMPILACIÓN Y EJECUCIÓN
 
 Requisitos previos:
 - Compilador GCC (MinGW en Windows, o GCC nativo en Linux/macOS).
 
-Compilacion desde consola (ubicado en la carpeta raiz del repositorio):
+Compilación desde consola (ubicado en la carpeta raíz del repositorio):
 
     gcc -Wall -Wextra -std=c11 main.c simulador.c validaciones.c -o simulador_artemis -lm
 
-(Nota: en Windows con MinGW, el parametro -lm es opcional).
+(Nota: en Windows con MinGW, el parámetro -lm es opcional).
 
-Ejecucion en Linux / macOS:
+Ejecución en Linux / macOS:
 
     ./simulador_artemis
 
-Ejecucion en Windows (CMD o PowerShell):
+Ejecución en Windows (CMD o PowerShell):
 
     simulador_artemis.exe
 
 --------------------------------------------------------------------------------
 
-CASOS DE PRUEBA RECOMENDADOS (PENDIENTES DE VERIFICACION FINAL)
+CASOS DE PRUEBA RECOMENDADOS (PENDIENTES DE VERIFICACIÓN FINAL)
 
-Antes de la entrega definitiva, el equipo debera ejecutar y verificar los siguientes escenarios de prueba:
+Antes de la entrega definitiva, el equipo deberá ejecutar y verificar los siguientes escenarios de prueba:
 
-1. Ejecucion con datos oficiales (Opcion 1): Verificar que los resultados de los puntos A, B, C y D coincidan con los calculos analiticos realizados manualmente en papel.
-2. Validacion de menu (Entradas erroneas): Ingresar letras (abc), simbolos (#$%), numeros fuera de rango (0, 8, -5) o presionar Enter vacio en el menu principal, comprobando que el sistema muestre un mensaje de error claro y vuelva a solicitar la opcion.
-3. Validacion de parametros personalizados (Opcion 2): Intentar ingresar aceleraciones negativas o altitudes fuera del rango permitido y verificar su rechazo.
-4. Orden de ejecucion: Intentar ejecutar las opciones 3, 4, 5 o 6 antes de haber cargado datos (Opciones 1 o 2), verificando que el programa advierta al usuario en lugar de mostrar valores basura de memoria.
+1. Ejecución con datos oficiales (Opción 1): Verificar que los resultados de los puntos A, B, C y D coincidan con los cálculos analíticos realizados manualmente en papel.
+2. Validación de menú (Entradas erróneas): Ingresar letras (abc), símbolos (#$%), números fuera de rango (0, 8, -5) o presionar Enter vacío en el menú principal, comprobando que el sistema muestre un mensaje de error claro y vuelva a solicitar la opción.
+3. Validación de parámetros personalizados (Opción 2): Intentar ingresar aceleraciones negativas o altitudes fuera del rango permitido y verificar su rechazo.
+4. Orden de ejecución: Intentar ejecutar las opciones 3, 4, 5 o 6 antes de haber cargado datos (Opciones 1 o 2), verificando que el programa advierta al usuario en lugar de mostrar valores basura de memoria.
 
 --------------------------------------------------------------------------------
 
-VIDEO DE PRESENTACION
+VIDEO DE PRESENTACIÓN
 
 - Enlace al video: 
 
@@ -106,9 +106,9 @@ VIDEO DE PRESENTACION
 
 REGISTRO DE USO DE INTELIGENCIA ARTIFICIAL
 
-En cumplimiento con las pautas de transparencia de la catedra, se detalla el uso de herramientas de Inteligencia Artificial Generativa durante el desarrollo:
+En cumplimiento con las pautas de transparencia de la cátedra, se detalla el uso de herramientas de Inteligencia Artificial Generativa durante el desarrollo:
 
 - Herramienta utilizada: Gemini (Google).
   
 Usos:
-- Controlar si el guión del video estaba completo y cumplia lo pedido.
+- Controlar si el guion del video estaba completo y cumplía lo pedido.
