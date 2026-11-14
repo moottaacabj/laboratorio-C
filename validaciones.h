@@ -1,34 +1,25 @@
 #ifndef VALIDACIONES_H
 #define VALIDACIONES_H
 
-/* ======================================================================
- * validaciones.h
- * Modulo de Validaciones e Interfaz.
- * Ingreso seguro de enteros, reales y caracteres, y mensajes al usuario.
+/* Modulo de validaciones: lectura segura de datos y mensajes al usuario.
  *
- * Convencion de retorno de todas las funciones leer*():
- *    1  -> se obtuvo un valor valido (queda guardado en el puntero de salida)
- *    0  -> fin de entrada (EOF, Ctrl+D / Ctrl+Z); el llamador debe cortar
- * La funcion NUNCA devuelve un valor invalido: repite la consulta hasta que
- * el usuario ingrese un dato correcto.
- * ====================================================================== */
+ * Las funciones leer...() devuelven:
+ *   1 -> el dato es valido y quedo guardado
+ *   0 -> se termino la entrada (EOF), hay que salir del programa
+ * Si el usuario se equivoca, la funcion vuelve a preguntar. */
 
-/* Tamano maximo (en caracteres) de una linea de entrada que se procesa */
+/* Maximo de caracteres que se leen por linea */
 #define MAX_LINEA 128
 
 /* ---------------------------- Entrada segura ---------------------------- */
 
-/* Lee un entero en el rango [min, max]. Rechaza texto, vacio, decimales,
- * basura al final (ej. "5abc") y desbordamientos. */
+/* Lee un entero entre min y max */
 int leerEnteroRango(const char *mensaje, int min, int max, int *valor);
 
-/* Lee un real en el rango [min, max]. Acepta punto o coma decimal.
- * Rechaza texto, vacio, "nan", "inf", basura al final y desbordamientos. */
+/* Lee un numero real entre min y max (acepta punto o coma) */
 int leerRealRango(const char *mensaje, double min, double max, double *valor);
 
-/* Lee un unico caracter que pertenezca al conjunto 'permitidos'
- * (ej. "sn"). No distingue mayusculas de minusculas; devuelve el caracter
- * en minuscula. */
+/* Lee un caracter que este dentro de 'permitidos' (ej: "sn") */
 int leerCaracter(const char *mensaje, const char *permitidos, char *valor);
 
 /* Pregunta de si/no. Devuelve 1 (si), 0 (no) o -1 si hay fin de entrada. */
@@ -45,4 +36,4 @@ void mostrarAdvertencia(const char *texto); /* imprime "[AVISO] ..."  */
 void mostrarError(const char *texto);       /* imprime "[ERROR] ..."  */
 void mostrarExito(const char *texto);       /* imprime "[OK] ..."     */
 
-#endif /* VALIDACIONES_H */
+#endif 
