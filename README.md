@@ -100,7 +100,7 @@ Antes de la entrega definitiva, el equipo deberá ejecutar y verificar los sigui
 
 VIDEO DE PRESENTACIÓN
 
-- Enlace al video: 
+- Enlace al video: https://youtu.be/p5OLUulYzNU 
 
 --------------------------------------------------------------------------------
 
